@@ -1,0 +1,1 @@
+Unzip and upload the folder to Netlify/Vercel. Open index.html to view.

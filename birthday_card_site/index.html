@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>HAPPIEST BIRTHDAY MERI AALU WALI TIKKI 💗</title>
+<style>
+:root{-/* placeholder */}
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#fff;background:radial-gradient(circle at 10% 10%, #0b1228 0%, #08101a 40%, #020307 100%);overflow:hidden;}
+.container{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px}
+.card{width:940px;max-width:96%;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));border-radius:18px;padding:26px;box-shadow:0 10px 40px rgba(2,6,23,0.6);position:relative;overflow:hidden}
+.header{display:flex;gap:18px;align-items:center}
+.title{font-size:28px;font-weight:800;letter-spacing:0.4px;background:linear-gradient(90deg,#ff6fb3,#ffb3d6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.subtitle{opacity:0.85}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px;align-items:center}
+.slide img{width:100%;height:360px;object-fit:cover;border-radius:12px;border:3px solid rgba(255,255,255,0.03)}
+.textcard{padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px}
+.message{white-space:pre-wrap;font-size:18px;line-height:1.45;color:#ffeef8;padding:8px}
+.btns{margin-top:14px;display:flex;gap:10px}
+.btn{padding:10px 14px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.03);cursor:pointer}
+.confetti{position:absolute;inset:0;pointer-events:none}
+.flower{position:absolute;width:48px;height:48px;opacity:0.95;will-change:transform;transform-origin:center}
+.footer{margin-top:12px;text-align:right;opacity:0.7;font-size:13px}
+@keyframes floaty{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-10px) rotate(8deg)}100%{transform:translateY(0) rotate(0deg)}}
+@keyframes fall{0%{transform:translateY(-120vh) rotate(0deg);opacity:0}20%{opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.flow1{left:8%;animation:fall 14s linear infinite;animation-delay:0s}
+.flow2{left:28%;animation:fall 12s linear infinite;animation-delay:2s}
+.flow3{left:48%;animation:fall 16s linear infinite;animation-delay:1s}
+.flow4{left:68%;animation:fall 13s linear infinite;animation-delay:3s}
+.flow5{left:88%;animation:fall 15s linear infinite;animation-delay:4s}
+@media (max-width:700px){.grid{grid-template-columns:1fr;}.slide img{height:260px}}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <div class="confetti" id="confetti"></div>
+    <div class="header">
+      <div>
+        <div class="title">HAPPIEST BIRTHDAY MERI AALU WALI TIKKI 💗</div>
+        <div class="subtitle">A little page made with love — drop for her to see 💌</div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="gallery">
+        <div class="slide"><img src="photo1.jpg" alt="photo1.jpg"></div>
+<div class="slide"><img src="photo2.jpg" alt="photo2.jpg"></div>
+<div class="slide"><img src="photo3.jpg" alt="photo3.jpg"></div>
+      </div>
+      <div class="textcard">
+        <div class="message" id="message">
+HAPPIEST BIRTHDAY MERI AALU WALI TIKKI💗
+ILOVEYOUSOMUCH MY CUTUU ITS YOUR DAY MAY ALLAH GIVE YOU EVERYTHING YOU DREAM OF (me) ALLAH AP KO HUMESHA KHUSH RAKHE MERI JAAN (mere sath ofc) I HOPE YOU ALWAYS WIN IN LIFE YOU ALWAYS GOT YOUR CHEEBU BY YOUR SIDE AND ILYSM MWAH😝💗
+        </div>
+
+        <div class="btns">
+          <button class="btn" id="playSound">Play Song</button>
+          <button class="btn" id="toggleConf">Toggle Flowers</button>
+          <button class="btn" id="downloadBtn">Download as Image</button>
+        </div>
+
+        <div class="footer">Made with ❤️ — share the link and surprise her!</div>
+      </div>
+    </div>
+
+    <!-- falling flowers -->
+    <img src="photo1.jpg" class="flower flow1" style="width:56px;height:56px;object-fit:cover;border-radius:50%">
+    <img src="photo2.jpg" class="flower flow2" style="width:44px;height:44px;object-fit:cover;border-radius:50%">
+    <img src="photo3.jpg" class="flower flow3" style="width:64px;height:64px;object-fit:cover;border-radius:50%">
+    <img src="photo1.jpg" class="flower flow4" style="width:40px;height:40px;object-fit:cover;border-radius:50%">
+    <img src="photo2.jpg" class="flower flow5" style="width:50px;height:50px;object-fit:cover;border-radius:50%">
+
+  </div>
+</div>
+
+<script>
+// confetti and interactions (same as before)
+(function(){
+  const conf = document.getElementById('confetti');
+  const c = document.createElement('canvas');
+  c.width = conf.clientWidth; c.height = conf.clientHeight;
+  conf.appendChild(c);
+  const ctx = c.getContext('2d');
+  let W = c.width = window.innerWidth;
+  let H = c.height = window.innerHeight;
+  window.addEventListener('resize', ()=>{W=c.width=window.innerWidth; H=c.height=window.innerHeight});
+
+  const pieces = [];
+  function rand(min,max){return Math.random()*(max-min)+min}
+  for(let i=0;i<120;i++){
+    pieces.push({
+      x:rand(0,W), y:rand(0,H)-H, r:rand(2,7), a:rand(0,Math.PI*2),
+      s:rand(0.5,1.5), c:['#ffd166','#ff6fb3','#9ad3bc','#ffd7b5'][i%4]
+    });
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(const p of pieces){
+      ctx.save();
+      ctx.translate(p.x,p.y);
+      ctx.rotate(p.a);
+      ctx.fillStyle = p.c;
+      ctx.fillRect(-p.r/2,-p.r/2,p.r*2,p.r);
+      ctx.restore();
+      p.y += 1 + p.s;
+      p.a += 0.02;
+      if(p.y > H+20){p.y = -40; p.x = Math.random()*W}
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+  document.getElementById('toggleConf').addEventListener('click', ()=>{ conf.style.display = conf.style.display === 'none' ? 'block' : 'none'; })
+})();
+
+document.getElementById('playSound').addEventListener('click', ()=>{
+  try{
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const now = ctx.currentTime;
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type='sine';
+    o.connect(g);
+    g.connect(ctx.destination);
+    g.gain.setValueAtTime(0, now);
+    const notes = [440, 523.25, 659.25, 880];
+    let t = 0;
+    notes.forEach((f,i)=>{
+      o.frequency.setValueAtTime(f, now + t);
+      g.gain.linearRampToValueAtTime(0.12, now + t + 0.02);
+      g.gain.linearRampToValueAtTime(0.0, now + t + 0.5);
+      t += 0.5;
+    });
+    o.start(now);
+    o.stop(now + t + 0.1);
+  }catch(e){ alert('Auto-play not supported on this browser.'); }
+});
+
+document.getElementById('downloadBtn').addEventListener('click', async ()=>{
+  const el = document.querySelector('.card');
+  const rect = el.getBoundingClientRect();
+  const canvas = document.createElement('canvas');
+  canvas.width = rect.width * 2;
+  canvas.height = rect.height * 2;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(2,2);
+  ctx.fillStyle = window.getComputedStyle(document.body).background;
+  ctx.fillRect(0,0,rect.width,rect.height);
+  ctx.font = '18px sans-serif';
+  ctx.fillStyle = '#fff';
+  ctx.fillText('HAPPIEST BIRTHDAY MERI AALU WALI TIKKI', 20, 40);
+  const url = canvas.toDataURL('image/png');
+  const a = document.createElement('a');
+  a.href = url; a.download = 'birthday_card.png';
+  a.click();
+});
+</script>
+</body>
+</html>
